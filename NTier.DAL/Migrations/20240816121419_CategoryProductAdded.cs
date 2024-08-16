@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NTier.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class initialDatabase : Migration
+    public partial class CategoryProductAdded : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -25,6 +25,22 @@ namespace NTier.DAL.Migrations
                 {
                     table.PrimaryKey("PK_Categories", x => x.ID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UnitPrice = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.ID);
+                });
         }
 
         /// <inheritdoc />
@@ -32,6 +48,9 @@ namespace NTier.DAL.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }

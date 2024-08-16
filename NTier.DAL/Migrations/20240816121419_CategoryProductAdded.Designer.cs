@@ -12,8 +12,8 @@ using NTier.DAL.Context;
 namespace NTier.DAL.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20240815113731_initialDatabase")]
-    partial class initialDatabase
+    [Migration("20240816121419_CategoryProductAdded")]
+    partial class CategoryProductAdded
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,32 @@ namespace NTier.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("NTier.DAL.Entity.Product", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,4)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Products");
                 });
 #pragma warning restore 612, 618
         }

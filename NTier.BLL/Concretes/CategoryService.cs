@@ -4,6 +4,7 @@ using NTier.DAL.Entity;
 
 namespace NTier.BLL.Concretes
 {
+    //Interface
     public class CategoryService : ICategoryRepository
     {
         ProjectContext context = new ProjectContext();
@@ -12,7 +13,7 @@ namespace NTier.BLL.Concretes
         {
             try
             {
-                context.Add(entity);
+                context.Categories.Add(entity);
                 context.SaveChanges();
                 return "Category Created";
             }

@@ -44,6 +44,32 @@ namespace NTier.DAL.Migrations
 
                     b.ToTable("Categories");
                 });
+
+            modelBuilder.Entity("NTier.DAL.Entity.Product", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,4)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Products");
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -11,6 +11,7 @@ namespace NTier.DAL.Context
 
         //DbSet
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         //OnConfiguring
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,6 +27,10 @@ namespace NTier.DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //FLUENT API
+
+            //Product
+            modelBuilder.Entity<Product>().Property(x => x.UnitPrice).HasColumnType("decimal(18,4)");
+
             base.OnModelCreating(modelBuilder);
         }
 

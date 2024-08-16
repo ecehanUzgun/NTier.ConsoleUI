@@ -3,7 +3,7 @@ using NTier.BLL.Concretes;
 
 namespace NTier.ConsoleUI
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -15,9 +15,18 @@ namespace NTier.ConsoleUI
 
             //BLL katmanında bulunan görev
             CategoryService categoryService = new CategoryService();
-            categoryService.CreateCategory(category);
+            categoryService.Create(category);
 
-            Console.Read();
+            //Product
+            Product product = new Product();
+            product.ProductName = "Product1";
+            product.UnitPrice = 100;
+
+            ProductService productService = new ProductService();
+            productService.Create(product);
+
+            productService.Read();
+
         }
     }
 }
