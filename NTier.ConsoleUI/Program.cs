@@ -7,26 +7,50 @@ namespace NTier.ConsoleUI
     {
         static void Main(string[] args)
         {
-            //DAL katmanında Entity
-            Category category = new Category
-            {
-                CategoryName = "Test Kategori"
-            };
+            #region DAL katmanında Entity
+            //Category category = new Category
+            //{
+            //    CategoryName = "Test Kategori"
+            //}; 
+            #endregion
 
             //BLL katmanında bulunan görev
+            #region CREATE Category
             CategoryService categoryService = new CategoryService();
-            categoryService.Create(category);
+            //categoryService.Create(category); 
+            #endregion
+
+            #region List Category
+            List<Category> categories = categoryService.Read();
+            Console.WriteLine("Category List");
+            foreach (Category category in categories)
+            {
+                Console.WriteLine(category.ID);
+                Console.WriteLine(category.CategoryName);
+                Console.WriteLine(category.CreatedDate);
+            } 
+            #endregion
 
             //Product
-            Product product = new Product();
-            product.ProductName = "Product1";
-            product.UnitPrice = 100;
-
             ProductService productService = new ProductService();
-            productService.Create(product);
+            #region CreateProduct
+            //Product product = new Product();
+            //product.ProductName = "Product1";
+            //product.UnitPrice = 100;
+            //productService.Create(product); 
+            #endregion
 
-            productService.Read();
-
+            #region READ Product
+            List<Product> products = productService.Read();
+            Console.WriteLine("\nProduct List");
+            foreach (Product productOne in products)
+            {
+                Console.WriteLine(productOne.ID);
+                Console.WriteLine(productOne.ProductName);
+                Console.WriteLine(productOne.UnitPrice);
+                Console.WriteLine(productOne.CreatedDate);
+            } 
+            #endregion
         }
     }
 }
