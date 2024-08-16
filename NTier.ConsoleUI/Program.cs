@@ -20,6 +20,16 @@ namespace NTier.ConsoleUI
             //categoryService.Create(category); 
             #endregion
 
+            //Delete Category
+            //categoryService.Delete(2);
+
+            #region UPDATE Category
+            //Category category1 = new Category();
+            //category1.ID = 1;
+            //category1.CategoryName = "Clothes";
+            //categoryService.Update(category1); 
+            #endregion
+
             #region List Category
             List<Category> categories = categoryService.Read();
             Console.WriteLine("Category List");
@@ -28,8 +38,9 @@ namespace NTier.ConsoleUI
                 Console.WriteLine(category.ID);
                 Console.WriteLine(category.CategoryName);
                 Console.WriteLine(category.CreatedDate);
-            } 
+            }
             #endregion
+
 
             //Product
             ProductService productService = new ProductService();
@@ -41,15 +52,15 @@ namespace NTier.ConsoleUI
             #endregion
 
             #region READ Product
-            List<Product> products = productService.Read();
-            Console.WriteLine("\nProduct List");
-            foreach (Product productOne in products)
-            {
-                Console.WriteLine(productOne.ID);
-                Console.WriteLine(productOne.ProductName);
-                Console.WriteLine(productOne.UnitPrice);
-                Console.WriteLine(productOne.CreatedDate);
-            } 
+            //List<Product> products = productService.Read();
+            //Console.WriteLine("\nProduct List");
+            //foreach (Product productOne in products)
+            //{
+            //    Console.WriteLine(productOne.ID);
+            //    Console.WriteLine(productOne.ProductName);
+            //    Console.WriteLine(productOne.UnitPrice);
+            //    Console.WriteLine(productOne.CreatedDate);
+            //} 
             #endregion
         }
     }
