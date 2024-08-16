@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NTier.BLL\NTier.BLL.csproj" />
-    <ProjectReference Include="..\NTier.DAL\NTier.DAL.csproj" />
   </ItemGroup>
 
 </Project>

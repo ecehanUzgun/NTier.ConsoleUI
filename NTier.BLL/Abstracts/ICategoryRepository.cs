@@ -1,9 +1,8 @@
 ﻿using NTier.DAL.Entity;
 namespace NTier.BLL.Abstracts
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository:IBaseRepository<Category>
     {
-        //Create Category
-        void CreateCategory(Category category);
+        
     }
 }
